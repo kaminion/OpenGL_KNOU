@@ -90,12 +90,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Ahnjoongwon\Desktop\Workspace\practice\OpenGLSample\lib\glew-2.1.0\include;C:\Users\Ahnjoongwon\Desktop\Workspace\practice\OpenGLSample\lib\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\declanAndrew\Desktop\Workspace\practice\OpenGL_KNOU\lib\glew-2.1.0\include;C:\Users\declanAndrew\Desktop\Workspace\practice\OpenGL_KNOU\lib\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Ahnjoongwon\Desktop\Workspace\practice\OpenGLSample\lib\glew-2.1.0\lib\Release\x64;C:\Users\Ahnjoongwon\Desktop\Workspace\practice\OpenGLSample\lib\freeglut\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\declanAndrew\Desktop\Workspace\practice\OpenGL_KNOU\lib\glew-2.1.0\lib\Release\x64;C:\Users\declanAndrew\Desktop\Workspace\practice\OpenGL_KNOU\lib\freeglut\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

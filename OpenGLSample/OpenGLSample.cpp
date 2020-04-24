@@ -10,8 +10,8 @@ using namespace std;
 struct Vec3f
 {
     float x, y, z;
-    Vect3f(){}
-    Vect3f(float _x, float _y, float _z) : x(_x), y(_y), z(_z) {}
+    Vec3f(){}
+    Vec3f(float _x, float _y, float _z) : x(_x), y(_y), z(_z) {}
 };
 
 enum {TRIANGLE, N_VBOs};
