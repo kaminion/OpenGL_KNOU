@@ -1,0 +1,2 @@
+﻿  OpenGLSample.cpp
+C:\Users\declanAndrew\Desktop\Workspace\practice\OpenGL_KNOU\OpenGLSample\include\GL\freeglut_std.h(68,1): fatal error C1189: #error:  Static linking is not supported with this build. Please remove the FREEGLUT_STATIC preprocessor directive, or download the source code from http://freeglut.sf.net/ and build against that.

@@ -1,10 +1,11 @@
 ﻿#include <iostream>
+#include <Windows.h>
 using namespace std;
 
 #define FREEGLUT_STATIC
 #define GLEW_STATIC
-#include <gl/glew.h>
-#include <gl/freeglut.h>
+#include <GL/glew.h>
+#include <GL/freeglut.h>
 
 // 3차원 좌표 표현하기위한 구조체
 struct Vec3f
@@ -124,12 +125,43 @@ static void RenderCB()
 static void InitVBOs()
 {
     Vec3f Vertices[3];
+    // 삼각형의 꼭짓점 좌표
+    Vertices[0] = Vec3f(-5.0f, -5.0f, 0.0f);
+    Vertices[1] = Vec3f(5.0f, -5.0f, 0.0f);
+    Vertices[2] = Vec3f(0.0f, 5.0f, 0.0f);
+
+    // 꼭짓점 버퍼를 생성하여 삼각형의 꼭짓점 좌표 전달
+    glGenBuffers(N_VBOs, VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO[TRIANGLE]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices),
+                 Vertices, GL_STATIC_DRAW);
 
 }
 
 
-int main()
+int main(int argc, char** argv)
 {
-    std::cout << "Hello World!\n";
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_SINGLE, GLUT_RGB);
+    glutInitWindowPostion(50, 100);
+    glutInitWindowSize(640, 480);
+    glutCreateWindow("OPENGL SAMPLE");
+
+    GLenum s = glewInit();
+    if (s != GLEW_OK)
+    {
+        cerr << "오류" << glewGetErrorString(s) << endl;
+        return 1;
+    }
+
+    cout << "GL VERSION : " << glGetString(GL_VERSION) << endl;
+    cout << "GLSL VERSION : " << glGetString(GL_SHADING_LANGUAGE_VERSION) << endl;
+
+    SetUpShaders();
+    InitVBOs();
+
+    glutDisplayFunc(RenderCB);
+    glutMainLoop();
+
     return 0;
 }
