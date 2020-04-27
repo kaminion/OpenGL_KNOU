@@ -2,8 +2,8 @@
 #include <Windows.h>
 using namespace std;
 
-#define FREEGLUT_STATIC
-#define GLEW_STATIC
+//#define FREEGLUT_STATIC
+//#define GLEW_STATIC
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 
@@ -25,7 +25,7 @@ static const char* pVS =
 "                                                   \n"
 "void main()                                        \n"
 "{                                                  \n"
-    "gl_Position = vec4(Position * 0.1, 1.0)"
+    "gl_Position = vec4(Position * 0.1, 1.0);"
 "}";
 
 // 프래그먼트 셰이더 소스
@@ -142,8 +142,8 @@ static void InitVBOs()
 int main(int argc, char** argv)
 {
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE, GLUT_RGB);
-    glutInitWindowPostion(50, 100);
+    //glutInitDisplayMode(GLUT_SINGLE, GLUT_RGB);
+    //glutInitWindowPostion(50, 100);
     glutInitWindowSize(640, 480);
     glutCreateWindow("OPENGL SAMPLE");
 
