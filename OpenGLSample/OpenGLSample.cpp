@@ -1,11 +1,14 @@
 ﻿#include <iostream>
-#include <Windows.h>
 using namespace std;
 
+/*
+    동적 연결이 아니라 정적 실행파일 생성
+*/
 //#define FREEGLUT_STATIC
 //#define GLEW_STATIC
 #include <GL/glew.h>
 #include <GL/freeglut.h>
+// OPEN GL은 gl.h에 들어있지만 이미 인클루드 되어있다.
 
 // 3차원 좌표 표현하기위한 구조체
 struct Vec3f
@@ -15,8 +18,9 @@ struct Vec3f
     Vec3f(float _x, float _y, float _z) : x(_x), y(_y), z(_z) {}
 };
 
+// 0, 1, 2... 순서를 갖는 enum 자료형
 enum {TRIANGLE, N_VBOs};
-GLuint VBO[N_VBOs]; // 꼭짓점 버퍼 객체
+GLuint VBO[N_VBOs]; // 꼭짓점 버퍼 객체, 핸들을 받아온다
 
 // 꼭짓점 셰이더 소스
 static const char* pVS =
