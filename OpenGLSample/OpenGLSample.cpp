@@ -23,6 +23,7 @@ enum {TRIANGLE, N_VBOs};
 GLuint VBO[N_VBOs]; // 꼭짓점 버퍼 객체, 핸들을 받아온다
 
 // 꼭짓점 셰이더 소스
+// 맨 뒤에 동차 파라미터 gl_position
 static const char* pVS =
 "#version 330                                       \n"
 "layout(location = 0) in vec3 Position;             \n"
@@ -118,14 +119,26 @@ static void RenderCB()
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT); // 백색으로 화면 지움
 
-    glEnableVertexAttribArray(0);
+    // 1강
+    /*glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, VBO[TRIANGLE]);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
     glDrawArrays(GL_TRIANGLES, 0, 3);
     glDisableVertexAttribArray(0);
+    */
+
+    // 3강
+    glEnableVertexAttribArray(0); // 꼭짓점 셰이더 0번 로케이션으로 연결이됨
+    glBindBuffer(GL_ARRAY_BUFFER, VBO[TRIANGLE]);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glDrawArrays(GL_LINE_LOOP, 0, 13);
+    glDisableVertexAttribArray(0);
+
     glFinish();
 }
 
+// 1강 내용
+/*
 static void InitVBOs()
 {
     Vec3f Vertices[3];
@@ -139,6 +152,22 @@ static void InitVBOs()
     glBindBuffer(GL_ARRAY_BUFFER, VBO[TRIANGLE]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices),
                  Vertices, GL_STATIC_DRAW);
+
+}
+*/
+
+// 3강
+static void InitVBOs()
+{
+    GLfloat Vertices[3][3] = {
+        {-5.0f, -5.0f, 0.0f}, {5.0f, -5.0f, 0.0f}, {0.0f, 5.0f, 0.0f}
+    };
+
+    glGenBuffers(N_VBOs, VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO[TRIANGLE]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices),
+        Vertices, GL_STATIC_DRAW
+    );
 
 }
 
