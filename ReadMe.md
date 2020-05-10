@@ -113,8 +113,12 @@ h에 무엇을 대입하느냐에 다르지만.. 데카르트 좌표상에서는
 점 그리기
 
 어디서 부터 시작, 모드가 무엇인지, 몇개그릴건지
-glDrawArrays(mode, first, count)
-
+glDrawArrays(mode, first, count) 
+mode는 3개
+**GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP**
+1. 짝있는것만 그림
+2. 모든 꼭지점이 연결된 닫히지않은 형태를 그림
+3. 쭉 연결된 닫힌 형태를 그림
 
 ### 직선 방정식
 **기울기-절편 방정식**

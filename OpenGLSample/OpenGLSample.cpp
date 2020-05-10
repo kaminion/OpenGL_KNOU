@@ -131,7 +131,7 @@ static void RenderCB()
     glEnableVertexAttribArray(0); // 꼭짓점 셰이더 0번 로케이션으로 연결이됨
     glBindBuffer(GL_ARRAY_BUFFER, VBO[TRIANGLE]);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-    glDrawArrays(GL_LINE_LOOP, 0, 13);
+    glDrawArrays(GL_LINES, 0, 13); // 여기서 첫번째 인자값에 따라 조금 달라짐 그려지는 형태 모드가 여러개임
     glDisableVertexAttribArray(0);
 
     glFinish();
